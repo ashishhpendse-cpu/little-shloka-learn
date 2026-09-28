@@ -42,7 +42,7 @@ function LibraryPage() {
       {/* Category filter */}
       <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
         {(["All", ...categories.map((c) => c.name)] as const).map((name) => {
-          const icon = name === "All" ? "🪷" : categories.find((c) => c.name === name)?.icon;
+          const icon = name === "All" ? "🌸" : categories.find((c) => c.name === name)?.icon;
           return (
             <button
               key={name}
