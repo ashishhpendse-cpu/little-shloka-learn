@@ -10,6 +10,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { Home, BookOpen, Gamepad2, Heart } from "lucide-react";
 
+import mascot from "@/assets/mascot.png";
+
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -86,14 +88,14 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2">
-          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-butter-soft text-2xl">
-            🪷
+          <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-butter-soft">
+            <img src={mascot} alt="" width={1024} height={1024} className="h-full w-full object-cover" />
           </span>
           <span className="font-display truncate text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
             Little Shloka
           </span>
         </Link>
-        <nav className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <nav className="flex shrink-0 items-center gap-1 sm:gap-2">
           {navItems.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
@@ -101,8 +103,8 @@ function Header() {
               className="flex items-center gap-1.5 rounded-full px-3 py-2.5 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-primary data-[status=active]:text-primary-foreground sm:px-5 sm:text-base [&_svg]:h-5 [&_svg]:w-5"
               activeOptions={{ exact: to === "/" }}
             >
-              <Icon className="hidden sm:block" />
-              {label}
+              <Icon />
+              <span className="hidden sm:inline">{label}</span>
             </Link>
           ))}
         </nav>
@@ -115,7 +117,14 @@ function Footer() {
   return (
     <footer className="mt-16 border-t border-border/60 bg-sage-soft/50">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-10 text-center sm:px-6">
-        <span className="text-3xl">🐘</span>
+        <img
+          src={mascot}
+          alt="Little Shloka elephant mascot"
+          width={1024}
+          height={1024}
+          loading="lazy"
+          className="w-14 rounded-full bg-card p-1 shadow-sm"
+        />
         <p className="font-display text-lg font-bold text-foreground">
           Little Shloka
         </p>

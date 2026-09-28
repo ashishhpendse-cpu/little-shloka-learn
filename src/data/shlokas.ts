@@ -22,11 +22,11 @@ export type Category =
   | "Guru";
 
 export const categories: { name: Category; icon: string; tint: string; blurb: string }[] = [
-  { name: "Morning", icon: "☀️", tint: "card-butter", blurb: "Start the day with sunshine words" },
+  { name: "Morning", icon: "🌞", tint: "card-butter", blurb: "Start the day with sunshine words" },
   { name: "Ganesha", icon: "🐘", tint: "card-lavender", blurb: "Loved elephant friend shlokas" },
-  { name: "Goddess", icon: "🪷", tint: "card-sage", blurb: "For Saraswati and Lakshmi" },
+  { name: "Goddess", icon: "🌸", tint: "card-sage", blurb: "For Saraswati and Lakshmi" },
   { name: "Peace", icon: "🕊️", tint: "card-lavender", blurb: "Calm and quiet mantras" },
-  { name: "Guru", icon: "🧡", tint: "card-butter", blurb: "Thank-you shlokas for teachers" },
+  { name: "Guru", icon: "💛", tint: "card-butter", blurb: "Thank-you shlokas for teachers" },
 ];
 
 export const shlokas: Shloka[] = [
