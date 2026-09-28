@@ -74,10 +74,10 @@ function Index() {
               {featuredShloka.title}
             </h2>
             <p lang="sa" className="mt-3 font-display text-2xl font-bold text-primary sm:text-3xl">
-              {featuredShloka.lines[0].devanagari}
+              {featuredShloka.lines[0]!.devanagari}
             </p>
             <p className="mt-2 text-base text-muted-foreground sm:text-lg">
-              {featuredShloka.lines[0].meaning}
+              {featuredShloka.lines[0]!.meaning}
             </p>
           </div>
           <ListenLearn className="md:pr-4" />
