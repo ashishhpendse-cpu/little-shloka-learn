@@ -8,9 +8,9 @@ import { shlokas, featuredShloka, categories } from "@/data/shlokas";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Little Shloka — Sanskrit Shlokas for Kids" },
+      { title: "ISHTA — Sanskrit Shlokas for Kids" },
       { name: "description", content: "Learn gentle Sanskrit shlokas and mantras through listening, reading and play. For children aged 4–10." },
-      { property: "og:title", content: "Little Shloka — Sanskrit Shlokas for Kids" },
+      { property: "og:title", content: "ISHTA — Sanskrit Shlokas for Kids" },
       { property: "og:description", content: "Learn gentle Sanskrit shlokas and mantras through listening, reading and play. For children aged 4–10." },
     ],
   }),
@@ -54,7 +54,7 @@ function Index() {
           />
           <img
             src={mascot}
-            alt="Little Shloka elephant mascot"
+            alt="ISHTA elephant mascot"
             width={1024}
             height={1024}
             loading="lazy"

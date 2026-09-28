@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { Home, BookOpen, Gamepad2, Heart } from "lucide-react";
 
-import mascot from "@/assets/mascot.png";
+import ishtaLogo from "@/assets/ishta-logo.png";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -87,13 +87,8 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2">
-          <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-butter-soft">
-            <img src={mascot} alt="" width={1024} height={1024} className="h-full w-full object-cover" />
-          </span>
-          <span className="font-display truncate text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
-            Little Shloka
-          </span>
+        <Link to="/" className="flex min-w-0 shrink-0 items-center">
+          <img src={ishtaLogo} alt="ISHTA — Mindful Beginnings" width={602} height={184} className="h-12 w-auto sm:h-14" />
         </Link>
         <nav className="flex shrink-0 items-center gap-1 sm:gap-2">
           {navItems.map(({ to, label, icon: Icon }) => (
@@ -118,16 +113,13 @@ function Footer() {
     <footer className="mt-16 border-t border-border/60 bg-sage-soft/50">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-10 text-center sm:px-6">
         <img
-          src={mascot}
-          alt="Little Shloka elephant mascot"
-          width={1024}
-          height={1024}
+          src={ishtaLogo}
+          alt="ISHTA — Mindful Beginnings"
+          width={602}
+          height={184}
           loading="lazy"
-          className="w-14 rounded-full bg-card p-1 shadow-sm"
+          className="h-14 w-auto"
         />
-        <p className="font-display text-lg font-bold text-foreground">
-          Little Shloka
-        </p>
         <p className="max-w-md text-sm text-muted-foreground">
           Gentle Sanskrit shlokas and mantras for little learners, aged 4–10.
           Made with love, one shloka at a time.
@@ -145,9 +137,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Little Shloka — Sanskrit Shlokas for Kids" },
+      { title: "ISHTA — Sanskrit Shlokas for Kids" },
       { name: "description", content: "Gentle Sanskrit shlokas and mantras for children aged 4–10. Listen, learn and play." },
-      { property: "og:title", content: "Little Shloka — Sanskrit Shlokas for Kids" },
+      { property: "og:title", content: "ISHTA — Sanskrit Shlokas for Kids" },
       { property: "og:description", content: "Gentle Sanskrit shlokas and mantras for children aged 4–10. Listen, learn and play." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -170,7 +162,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
