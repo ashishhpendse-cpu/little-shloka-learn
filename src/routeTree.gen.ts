@@ -10,33 +10,72 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as ShlokasRouteImport } from './routes/shlokas'
+import { Route as ShlokasSlugRouteImport } from './routes/shlokas.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShlokasRoute = ShlokasRouteImport.update({
+  id: '/shlokas',
+  path: '/shlokas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShlokasSlugRoute = ShlokasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ShlokasRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/games': typeof GamesRoute
+  '/shlokas': typeof ShlokasRouteWithChildren
+  '/shlokas/$slug': typeof ShlokasSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/games': typeof GamesRoute
+  '/shlokas': typeof ShlokasRouteWithChildren
+  '/shlokas/$slug': typeof ShlokasSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/games': typeof GamesRoute
+  '/shlokas': typeof ShlokasRouteWithChildren
+  '/shlokas/$slug': typeof ShlokasSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/about' | '/games' | '/shlokas' | '/shlokas/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about' | '/games' | '/shlokas' | '/shlokas/$slug'
+  id: '__root__' | '/' | '/about' | '/games' | '/shlokas' | '/shlokas/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  GamesRoute: typeof GamesRoute
+  ShlokasRoute: typeof ShlokasRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +87,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shlokas': {
+      id: '/shlokas'
+      path: '/shlokas'
+      fullPath: '/shlokas'
+      preLoaderRoute: typeof ShlokasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shlokas/$slug': {
+      id: '/shlokas/$slug'
+      path: '/$slug'
+      fullPath: '/shlokas/$slug'
+      preLoaderRoute: typeof ShlokasSlugRouteImport
+      parentRoute: typeof ShlokasRoute
+    }
   }
 }
 
+interface ShlokasRouteChildren {
+  ShlokasSlugRoute: typeof ShlokasSlugRoute
+}
+
+const ShlokasRouteChildren: ShlokasRouteChildren = {
+  ShlokasSlugRoute: ShlokasSlugRoute,
+}
+
+const ShlokasRouteWithChildren =
+  ShlokasRoute._addFileChildren(ShlokasRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  GamesRoute: GamesRoute,
+  ShlokasRoute: ShlokasRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
