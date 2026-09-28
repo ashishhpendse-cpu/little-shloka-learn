@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/games")({
   head: () => ({
     meta: [
-      { title: "Games — Little Shloka" },
+      { title: "Games — ISHTA" },
       { name: "description", content: "Play the Shloka Quiz: a gentle matching game that helps children remember Sanskrit shlokas." },
-      { property: "og:title", content: "Games — Little Shloka" },
+      { property: "og:title", content: "Games — ISHTA" },
       { property: "og:description", content: "Play the Shloka Quiz: a gentle matching game that helps children remember Sanskrit shlokas." },
     ],
   }),
