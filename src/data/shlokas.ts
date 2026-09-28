@@ -228,7 +228,7 @@ export function getShloka(slug: string): Shloka | undefined {
 
 export function nextShloka(slug: string): Shloka {
   const i = shlokas.findIndex((s) => s.slug === slug);
-  return shlokas[(i + 1) % shlokas.length];
+  return shlokas[(i + 1) % shlokas.length]!;
 }
 
 export const featuredShloka = shlokas[0]!;
