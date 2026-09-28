@@ -161,7 +161,7 @@ function GamesPage() {
                           ? "bg-destructive text-destructive-foreground"
                           : picked !== null
                             ? "bg-muted text-muted-foreground"
-                            : "bg-secondary-soft bg-sage-soft text-foreground hover:scale-105"
+                            : "bg-sage-soft text-foreground hover:scale-105"
                     )}
                   >
                     {option}
