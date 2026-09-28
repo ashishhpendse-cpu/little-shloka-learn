@@ -27,7 +27,7 @@ interface Question {
 function buildQuiz(): Question[] {
   const shuffled = [...shlokas].sort(() => Math.random() - 0.5);
   return shuffled.map((shloka) => {
-    const line = shloka.lines[0];
+    const line = shloka.lines[0]!;
     const wrong = shlokas
       .filter((s) => s.slug !== shloka.slug)
       .sort(() => Math.random() - 0.5)
@@ -50,7 +50,7 @@ function GamesPage() {
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
 
-  const question = useMemo(() => quiz[index], [quiz, index]);
+  const question = useMemo(() => quiz[index]!, [quiz, index]);
 
   const pick = (option: string) => {
     if (picked) return;

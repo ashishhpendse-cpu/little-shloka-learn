@@ -231,4 +231,4 @@ export function nextShloka(slug: string): Shloka {
   return shlokas[(i + 1) % shlokas.length];
 }
 
-export const featuredShloka = shlokas[0];
+export const featuredShloka = shlokas[0]!;
