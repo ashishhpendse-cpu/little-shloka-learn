@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Home, BookOpen, Gamepad2, Heart } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -16,17 +17,17 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <div className="text-6xl">🪷</div>
+        <h1 className="mt-4 text-4xl font-bold text-foreground">Oops!</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          We couldn't find that page. Let's go back home.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-bold text-primary-foreground transition-transform hover:scale-105"
           >
-            Go home
+            <Home className="h-5 w-5" /> Go home
           </Link>
         </div>
       </div>
@@ -44,25 +45,26 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+        <div className="text-6xl">🌼</div>
+        <h1 className="mt-4 text-2xl font-bold tracking-tight text-foreground">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-2 text-base text-muted-foreground">
+          Something went wrong on our end. You can try again or head back home.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-bold text-primary-foreground transition-transform hover:scale-105"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border-2 border-border bg-card px-8 py-4 text-lg font-bold text-foreground transition-transform hover:scale-105"
           >
             Go home
           </a>
@@ -72,24 +74,92 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const navItems = [
+  { to: "/", label: "Home", icon: Home },
+  { to: "/shlokas", label: "Shlokas", icon: BookOpen },
+  { to: "/games", label: "Games", icon: Gamepad2 },
+  { to: "/about", label: "About", icon: Heart },
+] as const;
+
+function Header() {
+  return (
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2">
+          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-butter-soft text-2xl">
+            🪷
+          </span>
+          <span className="font-display truncate text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
+            Little Shloka
+          </span>
+        </Link>
+        <nav className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          {navItems.map(({ to, label, icon: Icon }) => (
+            <Link
+              key={to}
+              to={to}
+              className="flex items-center gap-1.5 rounded-full px-3 py-2.5 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-primary data-[status=active]:text-primary-foreground sm:px-5 sm:text-base [&_svg]:h-5 [&_svg]:w-5"
+              activeOptions={{ exact: to === "/" }}
+            >
+              <Icon className="hidden sm:block" />
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="mt-16 border-t border-border/60 bg-sage-soft/50">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-10 text-center sm:px-6">
+        <span className="text-3xl">🐘</span>
+        <p className="font-display text-lg font-bold text-foreground">
+          Little Shloka
+        </p>
+        <p className="max-w-md text-sm text-muted-foreground">
+          Gentle Sanskrit shlokas and mantras for little learners, aged 4–10.
+          Made with love, one shloka at a time.
+        </p>
+        <p className="text-xs text-muted-foreground/80">
+          All audio is a friendly placeholder for now — real voices are on their way!
+        </p>
+      </div>
+    </footer>
+  );
+}
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Little Shloka — Sanskrit Shlokas for Kids" },
+      { name: "description", content: "Gentle Sanskrit shlokas and mantras for children aged 4–10. Listen, learn and play." },
+      { property: "og:title", content: "Little Shloka — Sanskrit Shlokas for Kids" },
+      { property: "og:description", content: "Gentle Sanskrit shlokas and mantras for children aged 4–10. Listen, learn and play." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -119,8 +189,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </QueryClientProvider>
   );
 }
