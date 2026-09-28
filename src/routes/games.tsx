@@ -91,7 +91,7 @@ function GamesPage() {
         <section className="mt-10 rounded-4xl bg-card p-8 text-center shadow-lg sm:p-12">
           <img
             src={mascot}
-            alt="Little Shloka elephant mascot celebrating"
+            alt="ISHTA elephant mascot celebrating"
             width={1024}
             height={1024}
             loading="lazy"

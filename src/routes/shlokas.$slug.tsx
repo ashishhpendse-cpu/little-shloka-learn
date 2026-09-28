@@ -15,16 +15,16 @@ export const Route = createFileRoute("/shlokas/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Shloka not found — Little Shloka" },
+          { title: "Shloka not found — ISHTA" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     return {
       meta: [
-        { title: `${loaderData.shloka.title} — Little Shloka` },
+        { title: `${loaderData.shloka.title} — ISHTA` },
         { name: "description", content: loaderData.shloka.blurb },
-        { property: "og:title", content: `${loaderData.shloka.title} — Little Shloka` },
+        { property: "og:title", content: `${loaderData.shloka.title} — ISHTA` },
         { property: "og:description", content: loaderData.shloka.blurb },
       ],
     };
