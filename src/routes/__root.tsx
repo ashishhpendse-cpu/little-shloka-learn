@@ -96,7 +96,7 @@ function Header() {
             <Link
               key={to}
               to={to}
-              className="flex items-center gap-1.5 rounded-full px-3 py-2.5 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-primary data-[status=active]:text-primary-foreground sm:px-5 sm:text-base [&_svg]:h-5 [&_svg]:w-5"
+              className="flex items-center gap-1.5 rounded-full px-2 py-2.5 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-primary data-[status=active]:text-primary-foreground sm:px-5 sm:text-base [&_svg]:h-5 [&_svg]:w-5"
               activeOptions={{ exact: to === "/" }}
             >
               <Icon />
