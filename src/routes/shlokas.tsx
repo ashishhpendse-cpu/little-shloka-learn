@@ -6,9 +6,9 @@ import { shlokas, categories, type Category } from "@/data/shlokas";
 export const Route = createFileRoute("/shlokas")({
   head: () => ({
     meta: [
-      { title: "Shloka Library — ISHTA" },
-      { name: "description", content: "Browse the ISHTA library: gentle Sanskrit shlokas and mantras for children, with meanings and transliteration." },
-      { property: "og:title", content: "Shloka Library — ISHTA" },
+      { title: "Shloka Library — Shloka Sparsha" },
+      { name: "description", content: "Browse the Shloka Sparsha library: gentle Sanskrit shlokas and mantras for children, with meanings and transliteration." },
+      { property: "og:title", content: "Shloka Library — Shloka Sparsha" },
       { property: "og:description", content: "Browse gentle Sanskrit shlokas and mantras for children, with meanings and transliteration." },
     ],
   }),
