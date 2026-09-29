@@ -89,7 +89,7 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link to="/" className="flex min-w-0 shrink-0 items-center">
-          <img src={sparshaLogo} alt="Shloka Sparsha — Mantras, Shlokas, Values for Little Learners" width={2078} height={757} className="h-12 w-auto sm:h-14" />
+          <img src={sparshaLogo} alt="Shloka Sparsha — Mantras, Shlokas, Values for Little Learners" width={2078} height={757} className="h-16 w-auto sm:h-20" />
         </Link>
         <nav className="flex shrink-0 items-center gap-1 sm:gap-2">
           {navItems.map(({ to, label, icon: Icon }) => (
