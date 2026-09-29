@@ -10,7 +10,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { Home, BookOpen, Gamepad2, Heart } from "lucide-react";
 
-import ishtaLogo from "@/assets/ishta-logo.png";
+import sparshaLogo from "@/assets/shloka-sparsha-logo.png";
+import sparshaBadge from "@/assets/shloka-sparsha-badge.png";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -88,7 +89,7 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link to="/" className="flex min-w-0 shrink-0 items-center">
-          <img src={ishtaLogo} alt="ISHTA — Mindful Beginnings" width={602} height={184} className="h-12 w-auto sm:h-14" />
+          <img src={sparshaLogo} alt="Shloka Sparsha — Mantras, Shlokas, Values for Little Learners" width={2078} height={757} className="h-12 w-auto sm:h-14" />
         </Link>
         <nav className="flex shrink-0 items-center gap-1 sm:gap-2">
           {navItems.map(({ to, label, icon: Icon }) => (
@@ -113,10 +114,10 @@ function Footer() {
     <footer className="mt-16 border-t border-border/60 bg-sage-soft/50">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-10 text-center sm:px-6">
         <img
-          src={ishtaLogo}
-          alt="ISHTA — Mindful Beginnings"
-          width={602}
-          height={184}
+          src={sparshaBadge}
+          alt="Shloka Sparsha — Mantras, Shlokas, Values for Little Learners"
+          width={1536}
+          height={1024}
           loading="lazy"
           className="h-14 w-auto"
         />
@@ -137,9 +138,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ISHTA — Sanskrit Shlokas for Kids" },
+      { title: "Shloka Sparsha — Sanskrit Shlokas for Kids" },
       { name: "description", content: "Gentle Sanskrit shlokas and mantras for children aged 4–10. Listen, learn and play." },
-      { property: "og:title", content: "ISHTA — Sanskrit Shlokas for Kids" },
+      { property: "og:title", content: "Shloka Sparsha — Sanskrit Shlokas for Kids" },
       { property: "og:description", content: "Gentle Sanskrit shlokas and mantras for children aged 4–10. Listen, learn and play." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

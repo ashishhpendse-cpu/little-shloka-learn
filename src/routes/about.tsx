@@ -6,10 +6,10 @@ import owl from "@/assets/owl.png";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — ISHTA" },
-      { name: "description", content: "ISHTA helps children aged 4–10 learn simple Sanskrit shlokas and mantras through listening, reading and play." },
-      { property: "og:title", content: "About — ISHTA" },
-      { property: "og:description", content: "ISHTA helps children aged 4–10 learn simple Sanskrit shlokas and mantras." },
+      { title: "About — Shloka Sparsha" },
+      { name: "description", content: "Shloka Sparsha helps children aged 4–10 learn simple Sanskrit shlokas and mantras through listening, reading and play." },
+      { property: "og:title", content: "About — Shloka Sparsha" },
+      { property: "og:description", content: "Shloka Sparsha helps children aged 4–10 learn simple Sanskrit shlokas and mantras." },
     ],
   }),
   component: AboutPage,
@@ -22,17 +22,17 @@ function AboutPage() {
       <section className="flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
         <img
           src={mascot}
-          alt="ISHTA elephant mascot"
+          alt="Shloka Sparsha elephant mascot"
           width={1024}
           height={1024}
           className="w-40 shrink-0 rounded-4xl bg-card p-2 shadow-lg sm:w-48"
         />
         <div>
           <h1 className="font-display text-4xl font-extrabold text-foreground sm:text-5xl">
-            Hello, we're ISHTA!
+            Hello, we're Shloka Sparsha!
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            ISHTA is a gentle, happy place where children aged 4–10 can
+            Shloka Sparsha is a gentle, happy place where children aged 4–10 can
             meet their very first Sanskrit shlokas and mantras. No tests, no
             rush — just listening, reading together and playing.
           </p>
